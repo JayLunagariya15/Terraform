@@ -5,7 +5,7 @@ data "azurerm_network_interface" "Petroleum_nic_data" {
 }
 
 data "azurerm_key_vault" "Petroleum_kv_data" {
-  name                = "munna-raja"
+  name                = "munna-patel"
   resource_group_name = "Petroleum-rg-Jay"
 }
 
