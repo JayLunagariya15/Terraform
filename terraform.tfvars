@@ -27,6 +27,12 @@ Petroleum_snet_details = {
     virtual_network_name = "Petroleum-vnet"
     address_prefixes     = ["10.0.28.0/24"]
   }
+  snet3 = {
+    name                 = "AzureBastionSubnet"
+    resource_group_name  = "Petroleum-rg-Jay"
+    virtual_network_name = "Petroleum-vnet"
+    address_prefixes     = ["10.0.60.0/24"]
+  }
 }
 
 Petroleum_nsg_details = {
@@ -128,6 +134,18 @@ Petroleum_vm_details = {
     }
   }
 }
+
+Petroleum_bastion_details = {
+  bastion1 ={
+  virtual_network_name ="Petroleum-vnet"
+  resource_group_name = "Petroleum-rg-Jay"
+  location = "Japan East"
+  pip_name = "Petroleum_bastion_pip"
+  bastion_name = "Petroleum_bastion"
+  }
+}
+
+
 Petroleum-nsg-association_details = {
   association1 = {
     network_interface_id      = "/subscriptions/f528c591-fe1e-4c79-a199-3dc70d54270b/resourceGroups/Petroleum-rg-Jay/providers/Microsoft.Network/networkInterfaces/Petroleum-nic"

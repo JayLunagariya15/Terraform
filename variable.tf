@@ -18,6 +18,10 @@ variable "Petroleum_vm_details" {
 
 }
 
+variable "Petroleum_bastion_details" {
+
+}
+
 variable "Petroleum_nsg_details" {
 
 }

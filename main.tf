@@ -15,7 +15,6 @@ module "Petroleum_snet_module" {
   Petroleum-snets = var.Petroleum_snet_details
 }
 
-
 module "Petroleum_nic_module" {
   depends_on              = [module.Petroleum_snet_module]
   source                  = "./Petroleum-nic"
@@ -41,4 +40,11 @@ module "Petroleum_nsg_association_module" {
   depends_on                 = [module.Petroleum_nic_module, module.Petroleum_nsg_module]
   source                     = "./Petroleum-nsg-association"
   Petroleum-nsg-associations = var.Petroleum-nsg-association_details
+}
+
+
+module "Petroleum_bastion_module" {
+  depends_on        = [module.Petroleum_snet_module]
+  source            = "./Petroleum-bastion"
+  Petroleum_bastion = var.Petroleum_bastion_details
 }
