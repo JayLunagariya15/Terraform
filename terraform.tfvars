@@ -35,6 +35,17 @@ Petroleum_snet_details = {
   }
 }
 
+Petroleum_bastion_details = {
+  bastion1 = {
+    virtual_network_name = "Petroleum-vnet"
+    resource_group_name  = "Petroleum-rg-Jay"
+    location             = "Japan East"
+    pip_name             = "Petroleum_bastion_pip"
+    bastion_name         = "Petroleum_bastion"
+  }
+}
+
+
 Petroleum_nsg_details = {
   nsg1 = {
     name                = "Petroleum-nsg"
@@ -135,15 +146,6 @@ Petroleum_vm_details = {
   }
 }
 
-Petroleum_bastion_details = {
-  bastion1 ={
-  virtual_network_name ="Petroleum-vnet"
-  resource_group_name = "Petroleum-rg-Jay"
-  location = "Japan East"
-  pip_name = "Petroleum_bastion_pip"
-  bastion_name = "Petroleum_bastion"
-  }
-}
 
 
 Petroleum-nsg-association_details = {
@@ -151,8 +153,4 @@ Petroleum-nsg-association_details = {
     network_interface_id      = "/subscriptions/f528c591-fe1e-4c79-a199-3dc70d54270b/resourceGroups/Petroleum-rg-Jay/providers/Microsoft.Network/networkInterfaces/Petroleum-nic"
     network_security_group_id = "/subscriptions/f528c591-fe1e-4c79-a199-3dc70d54270b/resourceGroups/Petroleum-rg-Jay/providers/Microsoft.Network/networkSecurityGroups/Petroleum-nsg"
   }
-  # association2={
-  #   network_interface_id = 
-  #   network_security_group_id =
-  # }
 }
