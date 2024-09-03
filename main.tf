@@ -1,18 +1,16 @@
-resource "azurerm_resource_group" "Petroleum-rg" {
-  name = "Petroleum-rg"
-  location = "France Central"
+module "Petroleum-rg-module" {
+  source       = "./Petroleum-rg"
+  Petroleum-rg = var.Petroleum-rg-details
 }
 
-resource "azurerm_storage_account" "Petroleum-sa" {
-  name = "petroleumsa"
-  resource_group_name = azurerm_resource_group.Petroleum-rg.name
-  location = azurerm_resource_group.Petroleum-rg.location
-  account_tier = "Standard"
-  account_replication_type = "LRS"
-} 
+module "Petroleum-sa-module" {
+  source                    = "./Petroleum-storageAccount"
+  depends_on                = [module.Petroleum-rg-module]
+  Petroleum-storage-account = var.Petroleum-sa-details
+}
 
-resource "azurerm_storage_container" "Petroleum-sc" {
-  name = "petroleumsc"
-  storage_account_name = azurerm_storage_account.Petroleum-sa.name
-  container_access_type = "private"
+module "Petroleum-sc-module" {
+  source                      = "./Petroleum-storageContainer"
+  depends_on                  = [module.Petroleum-sa-module]
+  Petroleum-storage-container = var.Petroleum-sc-details
 }
