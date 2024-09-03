@@ -23,7 +23,7 @@ module "Petroleum_nic_module" {
 }
 
 module "Petroleum_vm_module" {
-  depends_on            = [module.Petroleum_nic_module]
+  depends_on            = [module.Petroleum_nic_module, module.Petroleum_secrets-module]
   source                = "./Petroleum-vm"
   Petroleum-vms         = var.Petroleum_vm_details
   Petroleum_vm_nic_data = var.Petroleum_nic_details
@@ -47,4 +47,16 @@ module "Petroleum_bastion_module" {
   depends_on        = [module.Petroleum_snet_module]
   source            = "./Petroleum-bastion"
   Petroleum_bastion = var.Petroleum_bastion_details
+}
+
+module "Petroleum_keyvault-module" {
+  depends_on    = [module.Petroleum_rg_module]
+  source        = "./Petroleum-keyVault"
+  Petroleum-kvs = var.Petroleum_kv_details
+}
+
+module "Petroleum_secrets-module" {
+  depends_on    = [module.Petroleum_keyvault-module]
+  source        = "./Petroleum-secrets"
+  Petroleum_secret = var.Petroleum_secret_details
 }

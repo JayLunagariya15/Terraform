@@ -29,3 +29,11 @@ variable "Petroleum_nsg_details" {
 variable "Petroleum-nsg-association_details" {
 
 }
+
+variable "Petroleum_secret_details" {
+  
+}
+
+variable "Petroleum_kv_details" {
+  
+}

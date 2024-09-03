@@ -154,3 +154,28 @@ Petroleum-nsg-association_details = {
     network_security_group_id = "/subscriptions/f528c591-fe1e-4c79-a199-3dc70d54270b/resourceGroups/Petroleum-rg-Jay/providers/Microsoft.Network/networkSecurityGroups/Petroleum-nsg"
   }
 }
+
+Petroleum_kv_details = {
+  kv1 = {
+    name                       = "Petroleumkv"
+    location                   = "Japan East"
+    resource_group_name        = "Petroleum-rg-Jay"
+    sku_name                   = "standard"
+    soft_delete_retention_days = 7
+  }
+}
+
+Petroleum_secret_details = {
+  secret1 = {
+    data_name           = "Petroleumsecret"
+    resource_group_name = "Petroleum-rg-Jay"
+    secret_name         = "username"
+    secret_value        = "Petroleumadmin"
+  }
+  secret2 = {
+    data_name           = "Petroleumsecret"
+    resource_group_name = "Petroleum-rg-Jay"
+    secret_name         = "password"
+    secret_value        = "info@123"
+  }
+}
