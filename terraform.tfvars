@@ -1,4 +1,4 @@
-Petroleum-rg-details = {
+Petroleum_rg_details = {
   rg1 = {
     name     = "Petroleum-rg1"
     location = "Mexico Central"
@@ -9,7 +9,7 @@ Petroleum-rg-details = {
   }
 }
 
-Petroleum-vnet-details = {
+Petroleum_vnet_details = {
   vnet1 = {
     name                = "Petroleum-vnet1"
     location            = "Mexico Central"
@@ -24,7 +24,7 @@ Petroleum-vnet-details = {
   }
 }
 
-Petroleum-snet-details = {
+Petroleum_snet_details = {
   snet1 = {
     name                 = "Petroleum-snet1"
     resource_group_name  = "Petroleum-rg1"
@@ -64,7 +64,7 @@ Petroleum-snet-details = {
 }
 
 
-Petroleum-nic-details = {
+Petroleum_nic_details = {
   snet1 = {
     nic_name                      = "Petroleum_nic1"
     resource_group_name           = "Petroleum-rg1"
@@ -104,7 +104,7 @@ Petroleum-nic-details = {
 
 }
 
-Petroleum-bastion-details = {
+Petroleum_bastion_details = {
   bastion1 = { name = "Petroleum-bastion1"
     resource_group_name  = "Petroleum-rg1"
     location             = "Mexico Central"
@@ -121,7 +121,7 @@ Petroleum-bastion-details = {
   }
 }
 
-Petroleum-vm-details = {
+Petroleum_vm_details = {
   snet1 = {
     # snet1                = "Petroleum-snet1"
     name                 = "Petroleum-vm1"
@@ -193,7 +193,7 @@ Petroleum-vm-details = {
   }
 }
 
-Petroleum-kv-details = {
+Petroleum_kv_details = {
   kv1 = {
     name                = "petroleumkv1"
     resource_group_name = "Petroleum-rg1"
@@ -208,7 +208,7 @@ Petroleum-kv-details = {
   }
 }
 
-Petroleum-secret-details = {
+Petroleum_secret_details = {
   secret1 = {
     kv_name             = "petroleumkv1"
     secret_name         = "username"
@@ -232,5 +232,41 @@ Petroleum-secret-details = {
     secret_name         = "password"
     secret_value        = "info@123"
     resource_group_name = "Petroleum-rg2"
+  }
+}
+
+
+Petroleum_lb_details = {
+  lb1 = {
+    name                      = "Petroleum-lb1"
+    resource_group_name       = "Petroleum-rg1"
+    location                  = "Mexico Central"
+    frontend_ipconfig_name    = "PublicIPAddress"
+    backend_address_pool_name = "Petroleum-lb1-backendpool1"
+    lb_probe_name             = "Petroleum-Health_probe1"
+    protocol                  = "Tcp"
+    port                      = 80
+    interval_in_seconds       = 5
+    lb_rule_name              = "Petroleum-lb1-rule1"
+    frontend_port             = 9090
+    backend_port              = 80
+    idle_timeout_in_minutes   = 4
+    lb_pip_name               = "Petroleum-lb-pip"
+  }
+  lb2 = {
+    name                      = "Petroleum-lb1"
+    resource_group_name       = "Petroleum-rg2"
+    location                  = "France Central"
+    frontend_ipconfig_name    = "PublicIPAddress"
+    backend_address_pool_name = "Petroleum-lb2-backendpool2"
+    lb_probe_name             = "Petroleum-Health_probe2"
+    protocol                  = "Tcp"
+    port                      = 80
+    interval_in_seconds       = 5
+    lb_rule_name              = "Petroleum-lb2-rule2"
+    frontend_port             = 5050
+    backend_port              = 80
+    idle_timeout_in_minutes   = 4
+    lb_pip_name               = "Petroleum-lb-pip"
   }
 }

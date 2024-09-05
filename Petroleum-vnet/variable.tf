@@ -1,3 +1,3 @@
 variable "Petroleum_vnet" {
-  
+
 }

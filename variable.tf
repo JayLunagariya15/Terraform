@@ -1,31 +1,35 @@
-variable "Petroleum-rg-details" {
+variable "Petroleum_rg_details" {
 
 }
 
-variable "Petroleum-vnet-details" {
+variable "Petroleum_vnet_details" {
 
 }
 
-variable "Petroleum-snet-details" {
+variable "Petroleum_snet_details" {
 
 }
 
-variable "Petroleum-nic-details" {
+variable "Petroleum_nic_details" {
 
 }
 
-variable "Petroleum-vm-details" {
+variable "Petroleum_vm_details" {
 
 }
 
-variable "Petroleum-kv-details" {
+variable "Petroleum_kv_details" {
 
 }
 
-variable "Petroleum-secret-details" {
+variable "Petroleum_secret_details" {
 
 }
 
-variable "Petroleum-bastion-details" {
+variable "Petroleum_bastion_details" {
+
+}
+
+variable "Petroleum_lb_details" {
 
 }
