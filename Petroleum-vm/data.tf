@@ -21,4 +21,3 @@ data "azurerm_key_vault_secret" "password" {
   name         = each.value.secret_name2
   key_vault_id = data.azurerm_key_vault.Petroleum_kv_data[each.key].id
 }
-

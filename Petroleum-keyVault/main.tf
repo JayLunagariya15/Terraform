@@ -15,5 +15,4 @@ resource "azurerm_key_vault" "Petroleum_kv" {
 
     secret_permissions = ["Get", "List", "Set", "Delete", "Recover", "Backup", "Restore", "Purge"]
   }
-
 }

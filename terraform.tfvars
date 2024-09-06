@@ -63,6 +63,77 @@ Petroleum_snet_details = {
   }
 }
 
+Petroleum_nsg_details = {
+  nsg1 = {
+    name                = "Petroleum-nsg1"
+    location            = "Mexico Central"
+    resource_group_name = "Petroleum-rg1"
+    security_rule = {
+      name                       = "Petroleum-securityrule"
+      priority                   = 100
+      direction                  = "Inbound"
+      access                     = "Allow"
+      protocol                   = "Tcp"
+      source_port_range          = "*"
+      destination_port_range     = "*"
+      source_address_prefix      = "*"
+      destination_address_prefix = "*"
+    }
+    nic_data_name = "Petroleum_nic1"
+  }
+  nsg2 = {
+    name                = "Petroleum-nsg2"
+    location            = "Mexico Central"
+    resource_group_name = "Petroleum-rg1"
+    security_rule = {
+      name                       = "Petroleum-securityrule"
+      priority                   = 100
+      direction                  = "Inbound"
+      access                     = "Allow"
+      protocol                   = "Tcp"
+      source_port_range          = "*"
+      destination_port_range     = "*"
+      source_address_prefix      = "*"
+      destination_address_prefix = "*"
+    }
+    nic_data_name = "Petroleum_nic2"
+  }
+  nsg3 = {
+    name                = "Petroleum-nsg3"
+    location            = "France Central"
+    resource_group_name = "Petroleum-rg2"
+    security_rule = {
+      name                       = "Petroleum-securityrule"
+      priority                   = 100
+      direction                  = "Inbound"
+      access                     = "Allow"
+      protocol                   = "Tcp"
+      source_port_range          = "*"
+      destination_port_range     = "*"
+      source_address_prefix      = "*"
+      destination_address_prefix = "*"
+    }
+    nic_data_name = "Petroleum_nic3"
+  }
+  nsg4 = {
+    name                = "Petroleum-nsg4"
+    location            = "France Central"
+    resource_group_name = "Petroleum-rg2"
+    security_rule = {
+      name                       = "Petroleum-securityrule"
+      priority                   = 100
+      direction                  = "Inbound"
+      access                     = "Allow"
+      protocol                   = "Tcp"
+      source_port_range          = "*"
+      destination_port_range     = "*"
+      source_address_prefix      = "*"
+      destination_address_prefix = "*"
+    }
+    nic_data_name = "Petroleum_nic4"
+  }
+}
+
 
 Petroleum_nic_details = {
   snet1 = {
@@ -235,7 +306,6 @@ Petroleum_secret_details = {
   }
 }
 
-
 Petroleum_lb_details = {
   lb1 = {
     name                      = "Petroleum-lb1"
@@ -253,6 +323,7 @@ Petroleum_lb_details = {
     idle_timeout_in_minutes   = 4
     lb_pip_name               = "Petroleum-lb-pip"
   }
+
   lb2 = {
     name                      = "Petroleum-lb1"
     resource_group_name       = "Petroleum-rg2"
@@ -268,5 +339,33 @@ Petroleum_lb_details = {
     backend_port              = 80
     idle_timeout_in_minutes   = 4
     lb_pip_name               = "Petroleum-lb-pip"
+  }
+}
+
+
+Petroleum_lb_nic_details={
+  lb_nic1 ={
+    nic_data_name = "Petroleum_nic1"
+    resource_group_name ="Petroleum-rg1"
+    ipconfig_name="Petroleum_ipconfig"
+    backend_pool_key ="lb1"
+  }
+  lb_nic2 ={
+    nic_data_name = "Petroleum_nic2"
+    resource_group_name ="Petroleum-rg1"
+    ipconfig_name="Petroleum_ipconfig"
+    backend_pool_key ="lb1"
+  }
+  lb_nic3 ={
+    nic_data_name = "Petroleum_nic3"
+    resource_group_name ="Petroleum-rg2"
+    ipconfig_name="Petroleum_ipconfig"
+    backend_pool_key ="lb2"
+  }
+  lb_nic4 ={
+    nic_data_name = "Petroleum_nic4"
+    resource_group_name ="Petroleum-rg2"
+    ipconfig_name="Petroleum_ipconfig"
+    backend_pool_key ="lb2"
   }
 }

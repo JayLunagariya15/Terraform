@@ -33,3 +33,9 @@ variable "Petroleum_bastion_details" {
 variable "Petroleum_lb_details" {
 
 }
+variable "Petroleum_nsg_details" {
+  
+}
+variable "Petroleum_lb_nic_details" {
+  
+}

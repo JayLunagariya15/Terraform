@@ -12,9 +12,16 @@ resource "azurerm_lb" "Petroleum_lb" {
 }
 
 resource "azurerm_lb_backend_address_pool" "Petroleum_lb_backend_address_pool" {
-  for_each        = var.Petroleum_lb
-  name            = each.value.backend_address_pool_name
-  loadbalancer_id = azurerm_lb.Petroleum_lb[each.key].id
+  for_each           = var.Petroleum_lb
+  name               = each.value.backend_address_pool_name
+  loadbalancer_id    = azurerm_lb.Petroleum_lb[each.key].id
+}
+
+resource "azurerm_network_interface_backend_address_pool_association" "Petroleum_lb_backend_address_pool_address" {
+  for_each = var.Petroleum_lb_nic
+  network_interface_id    = data.azurerm_network_interface.Petroleum_lb_nic_data[each.key].id
+  ip_configuration_name   = each.value.ipconfig_name
+  backend_address_pool_id = azurerm_lb_backend_address_pool.Petroleum_lb_backend_address_pool[each.value.backend_pool_key].id
 }
 
 resource "azurerm_lb_probe" "Petroleum_lb_probe" {
