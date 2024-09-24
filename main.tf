@@ -40,6 +40,7 @@ resource "azurerm_public_ip" "Petroleum_pip" {
   allocation_method   = "Static"
 }
 
+
 resource "azurerm_network_interface" "Petroleum_nic" {
   name                = "Petroleum-nic"
   resource_group_name = azurerm_resource_group.Petroleum_rg.name
@@ -69,7 +70,13 @@ resource "azurerm_network_security_group" "Petroleum_nsg" {
   }
 }
 
-resource "azurerm_windows_virtual_machine" "Petroleum_vm" {
+resource "azurerm_network_interface_security_group_association" "Petroleum_nsg_association" {
+  network_interface_id = azurerm_network_interface.Petroleum_nic.id
+  network_security_group_id = azurerm_network_security_group.Petroleum_nsg.id
+}
+
+
+resource "azurerm_linux_virtual_machine" "Petroleum_vm" {
   name                  = "Petroleum-vm"
   resource_group_name   = azurerm_resource_group.Petroleum_rg.name
   location              = azurerm_resource_group.Petroleum_rg.location
@@ -77,16 +84,43 @@ resource "azurerm_windows_virtual_machine" "Petroleum_vm" {
   admin_username        = "adminuser"
   admin_password        = "Lunagariya@123"
   network_interface_ids = [azurerm_network_interface.Petroleum_nic.id]
+  disable_password_authentication = false
 
-  os_disk {
+    os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
   }
 
   source_image_reference {
-    publisher = "MicrosoftWindowsServer"
-    offer     = "WindowsServer"
-    sku       = "2016-Datacenter"
+    publisher = "Canonical"
+    offer     = "0001-com-ubuntu-server-jammy"
+    sku       = "22_04-lts"
     version   = "latest"
   }
 }
+
+
+
+# resource "azurerm_windows_virtual_machine" "Petroleum_vm" {
+#   name                = "Petroleum-vm"
+#   resource_group_name = azurerm_resource_group.Petroleum_rg.name
+#   location            = azurerm_resource_group.Petroleum_rg.location
+#   size                = "Standard_F2"
+#   admin_username      = "adminuser"
+#   admin_password      = "Lunagariya@123!"
+#   network_interface_ids = [
+#     azurerm_network_interface.Petroleum_nic.id,
+#   ]
+
+#   os_disk {
+#     caching              = "ReadWrite"
+#     storage_account_type = "Standard_LRS"
+#   }
+
+#   source_image_reference {
+#     publisher = "MicrosoftWindowsServer"
+#     offer     = "WindowsServer"
+#     sku       = "2016-Datacenter"
+#     version   = "latest"
+#   }
+# }
