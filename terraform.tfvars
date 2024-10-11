@@ -66,10 +66,10 @@ vm = {
   vm3 = {
     pip_name             = "vm-pip3"
     resource_group_name  = "Jay-RG"
-    location             = "Canada Central"  # Change this to Canada Central
+    location             = "Canada Central" 
     nic_name             = "nic3"
     name                 = "spoke2-vm"
     subnet_name          = "spoke2"
-    virtual_network_name = "Jay-vnet2"  # Ensure this VM uses the correct subnet in Canada Central
+    virtual_network_name = "Jay-vnet2"  
   }
 }
