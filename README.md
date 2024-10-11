@@ -1,4 +1,4 @@
-# Terraform Azure Infrastructure with Storage Account and Optional Attributes
+# Terraform Azure Infrastructure with Optional Attributes
 
 This branch contains Terraform code that provisions an Azure Storage Account, along with a Resource Group (RG) and Storage Container. The configuration showcases the use of optional attributes such as **tags** for resources, providing additional metadata.
 
