@@ -150,7 +150,13 @@ Petroleum_vm_details = {
 
 Petroleum-nsg-association_details = {
   association1 = {
-    network_interface_id      = "/subscriptions/f528c591-fe1e-4c79-a199-3dc70d54270b/resourceGroups/Petroleum-rg-Jay/providers/Microsoft.Network/networkInterfaces/Petroleum-nic"
-    network_security_group_id = "/subscriptions/f528c591-fe1e-4c79-a199-3dc70d54270b/resourceGroups/Petroleum-rg-Jay/providers/Microsoft.Network/networkSecurityGroups/Petroleum-nsg"
+    nic_name            = "Petroleum-nic"
+    nsg_name            = "Petroleum-nsg"
+    resource_group_name = "Petroleum-rg-Jay"
+  }
+  association2 = {
+    nic_name            = "Petroleum-nic-2"
+    nsg_name            = "Petroleum-nsg-2"
+    resource_group_name = "Petroleum-rg-Jay"
   }
 }
