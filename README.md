@@ -1,7 +1,3 @@
-Here's a `README.md` file tailored for your branch, which provisions 2 VMs with Public IPs, following your folder structure:
-
----
-
 # Terraform Azure Infrastructure with Two Virtual Machines
 
 This repository contains Terraform code that provisions two Linux Virtual Machines (VMs) in Azure, complete with networking and security infrastructure. The code is organized into modular folders for each resource.
