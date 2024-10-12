@@ -42,6 +42,6 @@ variable "Petroleum_lb_nic_details" {
 variable "Petroleum_peering_details" {
   
 }
-variable "Petroleum_firewall_details" {
+# variable "Petroleum_firewall_details" {
   
-}
+# }

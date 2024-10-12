@@ -5,19 +5,19 @@ data "azurerm_network_interface" "Petroleum_nic_data" {
 }
 
 data "azurerm_key_vault" "Petroleum_kv_data" {
-  for_each            = var.Petroleum_vm
+  for_each            = var.Petroleum_kv
   name                = each.value.kv_name
-  resource_group_name = each.value.resource_group_name
+  resource_group_name = each.value.resource_group_name1
 }
 
 data "azurerm_key_vault_secret" "username" {
-  for_each     = var.Petroleum_vm
+  for_each     = var.Petroleum_secret
   name         = each.value.secret_name1
   key_vault_id = data.azurerm_key_vault.Petroleum_kv_data[each.key].id
 }
 
 data "azurerm_key_vault_secret" "password" {
-  for_each     = var.Petroleum_vm
+  for_each     = var.Petroleum_secret
   name         = each.value.secret_name2
   key_vault_id = data.azurerm_key_vault.Petroleum_kv_data[each.key].id
 }

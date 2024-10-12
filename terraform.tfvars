@@ -9,7 +9,7 @@ Petroleum_rg_details = {
   }
   rg3 = {
     name     = "Petroleum-sub2"
-    location = "Korea South"
+    location = "Korea Central"
   }
 }
 
@@ -28,7 +28,7 @@ Petroleum_vnet_details = {
   }
   vnet3 = {
     name                = "Petroleum-vnet-sub2"
-    location            = "Korea South"
+    location            = "Korea Central"
     resource_group_name = "Petroleum-sub2"
     address_space       = ["10.2.0.0/16"]
   }
@@ -51,7 +51,7 @@ Petroleum_snet_details = {
     name                 = "Petroleum-snet3"
     resource_group_name  = "Petroleum-sub2"
     virtual_network_name = "Petroleum-vnet-sub2"
-    address_prefixes     = ["10.1.2.0/24"]
+    address_prefixes     = ["10.2.2.0/24"]
   }
   snet4 = {
     name                 = "AzureBastionSubnet"
@@ -59,8 +59,8 @@ Petroleum_snet_details = {
     virtual_network_name = "Petroleum-vnet-Hub"
     address_prefixes     = ["10.0.58.0/24"]
   }
-  snet5={
-    name="AzureFirewallSubnet"
+  snet5 = {
+    name                 = "AzureFirewallSubnet"
     resource_group_name  = "Petroleum-Hub"
     virtual_network_name = "Petroleum-vnet-Hub"
     address_prefixes     = ["10.0.99.0/24"]
@@ -104,7 +104,7 @@ Petroleum_nsg_details = {
   }
   nsg3 = {
     name                = "Petroleum-nsg3"
-    location            = "Korea South"
+    location            = "Korea Central"
     resource_group_name = "Petroleum-sub2"
     security_rule = {
       name                       = "Petroleum-securityrule"
@@ -144,7 +144,7 @@ Petroleum_nic_details = {
   snet3 = {
     nic_name                      = "Petroleum_nic3"
     resource_group_name           = "Petroleum-sub2"
-    location                      = "Korea South"
+    location                      = "Korea Central"
     ipconfig_name                 = "Petroleum_ipconfig"
     snet_name                     = "Petroleum-snet3"
     virtual_network_name          = "Petroleum-vnet-sub2"
@@ -168,6 +168,7 @@ Petroleum_vm_details = {
     name                 = "Petroleum-Hub"
     nic_data_name        = "Petroleum_nic1"
     resource_group_name  = "Petroleum-Hub"
+    resource_group_name1 = "Petroleum-Hub"
     location             = "Mexico Central"
     size                 = "Standard_F2"
     caching              = "ReadWrite"
@@ -184,6 +185,7 @@ Petroleum_vm_details = {
     name                 = "Petroleum-sub1"
     nic_data_name        = "Petroleum_nic2"
     resource_group_name  = "Petroleum-sub1"
+    resource_group_name1 = "Petroleum-Hub"
     location             = "France Central"
     size                 = "Standard_F2"
     caching              = "ReadWrite"
@@ -200,7 +202,8 @@ Petroleum_vm_details = {
     name                 = "Petroleum-sub2"
     nic_data_name        = "Petroleum_nic3"
     resource_group_name  = "Petroleum-sub2"
-    location             = "Korea South"
+    resource_group_name1 = "Petroleum-Hub"
+    location             = "Korea Central"
     size                 = "Standard_F2"
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
@@ -211,13 +214,12 @@ Petroleum_vm_details = {
     kv_name              = "petroleumkv1"
     secret_name1         = "username"
     secret_name2         = "password"
-
   }
 }
 
 Petroleum_kv_details = {
   kv1 = {
-    name                = "petroleumkv1"
+    kv_name             = "petroleumkv1"
     resource_group_name = "Petroleum-Hub"
     location            = "Mexico Central"
     sku_name            = "standard"
@@ -276,7 +278,7 @@ Petroleum_lb_details = {
   lb3 = {
     name                      = "Petroleum-sub2"
     resource_group_name       = "Petroleum-sub2"
-    location                  = "Korea South"
+    location                  = "Korea Central"
     frontend_ipconfig_name    = "PublicIPAddress"
     backend_address_pool_name = "Petroleum-lb3-backendpool3"
     lb_probe_name             = "Petroleum-Health_probe3"
@@ -331,13 +333,13 @@ Petroleum_peering_details = {
 }
 
 
-Petroleum_firewall_details = {
-  firewall1={
-    pip_name ="firewall-pip"
-    location ="Mexico Central"
-    resource_group_name= "Petroleum-Hub"
-    name="Hub-Firewall"
-    policy_name="hub-firewall-policy"
-    route_table_name="route-table"
-  }
-}
+# Petroleum_firewall_details = {
+#   firewall1={
+#     pip_name ="firewall-pip"
+#     location ="Mexico Central"
+#     resource_group_name= "Petroleum-Hub"
+#     name="Hub-Firewall"
+#     policy_name="hub-firewall-policy"
+#     route_table_name="route-table"
+#   }
+# }

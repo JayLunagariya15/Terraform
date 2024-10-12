@@ -22,9 +22,11 @@ module "Petroleum-nic-module" {
 }
 
 module "Petroleum-vm-module" {
-  depends_on   = [module.Petroleum-nic-module, module.Petroleum-secret-module,module.Petroleum-keyVault-module]
-  source       = "./Petroleum-vm"
-  Petroleum_vm = var.Petroleum_vm_details
+  depends_on       = [module.Petroleum-nic-module, module.Petroleum-secret-module, module.Petroleum-keyVault-module]
+  source           = "./Petroleum-vm"
+  Petroleum_vm     = var.Petroleum_vm_details
+  Petroleum_secret = var.Petroleum_vm_details
+  Petroleum_kv     = var.Petroleum_vm_details
 }
 
 module "Petroleum-keyVault-module" {
@@ -46,26 +48,26 @@ module "Petroleum-bastion-module" {
 }
 
 module "Petroleum-loadBalancer-module" {
-  depends_on   = [module.Petroleum-rg-module,module.Petroleum-vnet-module,module.Petroleum-vm-module,module.Petroleum-nic-module]
-  source       = "./Petroleum-loadBalancer"
-  Petroleum_lb = var.Petroleum_lb_details
+  depends_on       = [module.Petroleum-rg-module, module.Petroleum-vnet-module, module.Petroleum-vm-module, module.Petroleum-nic-module]
+  source           = "./Petroleum-loadBalancer"
+  Petroleum_lb     = var.Petroleum_lb_details
   Petroleum_lb_nic = var.Petroleum_lb_nic_details
 }
 
 module "Petroleum-nsg-module" {
-  depends_on = [ module.Petroleum-nic-module ]
-  source = "./Petroleum-nsg"
+  depends_on     = [module.Petroleum-nic-module]
+  source         = "./Petroleum-nsg"
   Petroleum_nsgs = var.Petroleum_nsg_details
 }
 
 module "Petroleum-vnet-peering-module" {
-  depends_on = [ module.Petroleum-vnet-module ]
-  source = "./Petroleum-vnetPeering"
+  depends_on        = [module.Petroleum-vnet-module]
+  source            = "./Petroleum-vnetPeering"
   Petroleum_peering = var.Petroleum_peering_details
 }
 
-module "Petroleum-firewall-module" {
-  source = "./Petroleum-firewall"
-  depends_on = [ module.Petroleum-vm-module,module.Petroleum-vnet-peering-module,module.Petroleum-snet-module, module.Petroleum-vm-module, module.Petroleum-vm-module ]
-  Petroleum_firewall = var.Petroleum_firewall_details
-}
+# module "Petroleum-firewall-module" {
+#   source = "./Petroleum-firewall"
+#   depends_on = [ module.Petroleum-vm-module,module.Petroleum-vnet-peering-module,module.Petroleum-snet-module, module.Petroleum-vm-module, module.Petroleum-vm-module ]
+#   Petroleum_firewall = var.Petroleum_firewall_details
+# }
