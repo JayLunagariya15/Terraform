@@ -5,7 +5,7 @@ resource "azurerm_kubernetes_cluster" "k8s-cluster" {
   location            = each.value.location
   resource_group_name = each.value.resource_group_name
   dns_prefix          = each.value.dns_prefix
-  kubernetes_version  = "1.29.10"
+  kubernetes_version  = "1.29.9"
 
   default_node_pool {
     name       = each.value.default_node_pool.name
